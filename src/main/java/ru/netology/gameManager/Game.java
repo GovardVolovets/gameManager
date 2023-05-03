@@ -1,22 +1,18 @@
 package ru.netology.gameManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Game {
-    private List<Player> players = new ArrayList<>();
+    private HashMap<String, Player> players = new HashMap<>();
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     private Player findPlayerByName(String playerName) {
-        for (int i = 0; i < players.size(); i++) {
-            if (players.get(i).getName().equals(playerName)) {
-                return players.get(i);
-            }
-        }
-        return null;
+        return players.get(playerName);
     }
 
     public int round(String playerName1, String playerName2) {
